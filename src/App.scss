@@ -1,12 +1,6 @@
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
-body {
-    height: 5000px;
+.active {
+    font-weight: bold !important;
 }
-
-.user {
-    font-weight: bold;
-    color: rebeccapurple;
-    font-size: 1.5rem;
+.rtl {
+    direction: rtl;
 }
