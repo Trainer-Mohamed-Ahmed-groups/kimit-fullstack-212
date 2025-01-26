@@ -23,7 +23,9 @@ function SiteNav() {
                         <NavLink className='m-3 nav-link' to="/">Home</NavLink>
                         <NavLink className='m-3 nav-link' to="/about">About</NavLink>
                         <NavLink className='m-3 nav-link' to="/contact">Contact</NavLink>
-                        <Button variant='primary' onClick={handleLang}>{i18n.language === 'en' ? 'عربى' : 'English'}</Button>
+                        <NavLink className='m-3 nav-link' to="/use_memo">Use memo</NavLink>
+                        <NavLink className='m-3 nav-link' to="/use_reducer">Use reducer</NavLink>
+                        {/* <Button variant='primary' onClick={handleLang}>{i18n.language === 'en' ? 'عربى' : 'English'}</Button> */}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
