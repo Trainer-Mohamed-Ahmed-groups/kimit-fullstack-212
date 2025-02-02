@@ -25,6 +25,7 @@ function SiteNav() {
                         <NavLink className='m-3 nav-link' to="/contact">Contact</NavLink>
                         <NavLink className='m-3 nav-link' to="/use_memo">Use memo</NavLink>
                         <NavLink className='m-3 nav-link' to="/use_reducer">Use reducer</NavLink>
+                        <NavLink className='m-3 nav-link' to="/use_callback">Use callback</NavLink>
                         {/* <Button variant='primary' onClick={handleLang}>{i18n.language === 'en' ? 'عربى' : 'English'}</Button> */}
                     </Nav>
                 </Navbar.Collapse>

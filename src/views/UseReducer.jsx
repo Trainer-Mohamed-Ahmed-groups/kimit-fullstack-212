@@ -1,5 +1,6 @@
-import { useReducer, useState } from "react"
+import { useContext, useReducer, useState } from "react"
 import { Button } from "react-bootstrap"
+import { CounterContext } from "../context/CounterContext"
 
 function counterReducer(state, action) {
     switch (action) {
@@ -11,6 +12,8 @@ function counterReducer(state, action) {
 
 export default function UseReducer() {
 
+    const myData = useContext(CounterContext)
+
     // const [myNumber, setMyNumber] = useState(0)
     const [myNumber, dispatch] = useReducer(counterReducer, 0)
 
@@ -20,11 +23,7 @@ export default function UseReducer() {
     return (
         <div>
             <h2>UseReducer</h2>
-            <div className="d-flex align-content-center justify-content-center gap-2">
-                <Button onClick={() => dispatch('INCREMENT')} variant="secondary">+</Button>
-                <p>My Number: {myNumber}</p>
-                <Button onClick={() => dispatch('DECREMENT')} variant="secondary">-</Button>
-            </div>
+                <p>{myData.counter}</p>
         </div>
     )
 }

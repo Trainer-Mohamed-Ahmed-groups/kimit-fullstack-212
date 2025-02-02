@@ -7,6 +7,7 @@ import i18n from "i18next";
 import { initReactI18next, I18nextProvider } from "react-i18next";
 import enTranslation from "./locale/en.json"
 import arTranslation from "./locale/ar.json"
+import CounterProvider from './context/CounterContext.jsx';
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
@@ -24,7 +25,9 @@ i18n
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <CounterProvider>
+        <App />
+      </CounterProvider>
     </BrowserRouter>
   </StrictMode>,
 )
