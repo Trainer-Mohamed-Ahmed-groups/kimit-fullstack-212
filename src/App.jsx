@@ -1,33 +1,27 @@
-import { Routes, Route } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import './App.scss'
-import Home from './views/Home'
-import About from './views/About'
-import Contact from './views/Contact'
-import SiteNav from './layout/SiteNav'
-import { useTranslation } from 'react-i18next'
-import UseMemo from './views/UseMemo'
-import UseReducer from './views/UseReducer'
-import UseCallback from './views/UseCallback'
-import { useState } from 'react'
+import { Button } from 'react-bootstrap'
+import { DECREMENT, INCREMENT } from './redux/actions/actions'
+
 
 function App() {
-  const { i18n } = useTranslation();
 
-  const [count, setCount] = useState(0)
+  let countState = useSelector(store => store.counter)
+  const dispatch = useDispatch()
+
+  const increaseCounter = () => {
+    dispatch({ type: INCREMENT })
+  }
+
+  const decreaseCounter = () => {
+    dispatch({ type: DECREMENT })
+  }
 
   return (
-    <div className={i18n.language === 'ar' ? 'rtl' : ''}>
-      <SiteNav />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        {/* <Route path="/contact" element={<Contact />} /> */}
-        <Route path="/contact" Component={Contact} />
-        <Route path="/use_memo" Component={UseMemo} />
-        <Route path="/use_reducer" Component={UseReducer} />
-        <Route path="/use_callback" Component={UseCallback} />
-      </Routes>
+    <div className='d-flex justify-content-center m-4 gap-4'>
+      <Button variant='primary' onClick={increaseCounter}>Add</Button>
+      <div>{countState}</div>
+      <Button variant='info' onClick={decreaseCounter}>decrease</Button>
     </div>
   )
 }
